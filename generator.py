@@ -7,7 +7,8 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import os, textwrap, json, re
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-FONTS_DIR = os.path.join(BASE_DIR, "fonts")
+_fonts_subdir = os.path.join(BASE_DIR, "fonts")
+FONTS_DIR = _fonts_subdir if os.path.isdir(_fonts_subdir) else BASE_DIR
 
 FORMATS = {
     "ig_square":   {"name": "Instagram Square",   "w": 1080, "h": 1080},
